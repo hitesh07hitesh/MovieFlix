@@ -1,0 +1,42 @@
+.react-select__control {
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    background-color: #f40000;
+    border-radius: 20px;
+}
+
+.react-select__control .react-select__value-container .react-select__placeholder,
+.react-select__control .react-select__value-container .react-select__input-container {
+    color: white;
+    margin: 0 10px;
+}
+
+.react-select__control .react-select__single-value {
+    color: white;
+}
+
+.react-select__control .react-select__multi-value {
+    background-color: green;
+    border-radius: 10px;
+}
+
+.react-select__control .react-select__multi-value .react-select__multi-value__label {
+    color: white;
+}
+
+.react-select__control .react-select__multi-value .react-select__multi-value__remove {
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+.react-select__control .react-select__multi-value .react-select__multi-value__remove:hover {
+    color: red;
+}
+
+.react-select__menu {
+    top: 40px;
+    margin: 0;
+    padding: 0;
+}

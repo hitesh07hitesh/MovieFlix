@@ -6,7 +6,7 @@ import SwitchTabs from "../../../components/SwitchTabs"
 const popular = () => {
     const [endPoint, setEndPoint] = useState("movie")
     const { data, loading } = useFetch(`/${endPoint}/popular`)
-    console.log(data)
+    // console.log(data)
 
     const onTabChange = (tab) => {
         setEndPoint(tab === "Movies" ? "movie" : "tv");

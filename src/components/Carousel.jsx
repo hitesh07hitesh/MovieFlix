@@ -12,6 +12,7 @@ const Carousel = ({ data, loading, endPoint, title }) => {
     const carouselContainer = useRef();
     const { url } = useSelector((state) => state.home);
     const navigate = useNavigate();
+    // console.log(endPoint)
 
     const navigation = (dir) => {
         const container = carouselContainer.current;
@@ -28,7 +29,7 @@ const Carousel = ({ data, loading, endPoint, title }) => {
 
     return (
         <div className='m-8 relative'>
-            {title && <div className='text-4xl text-white font-medium mb-4'>{title}</div>}
+            {title && <div className='mb-2 text-[2rem] text-white font-medium'>{title}</div>}
             <LeftCircleFilled
                 className='text-4xl text-white absolute top-1/2 cursor-pointer opacity-50 left-4 transform -translate-y-1/2 z-50'
                 onClick={() => navigation('left')}

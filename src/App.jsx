@@ -10,12 +10,14 @@ import { getApiConfiguration, getGenres } from "./store/homeSlice";
 import Comp from './components/Carousel.jsx'
 import PageNotFound from './pages/PageNotFound.jsx'
 import Details from './pages/Details.jsx'
+import SearchResult from './pages/SearchResult.jsx'
+import Explore from './pages/Explore.jsx'
 
 
 function App() {
   const dispatch = useDispatch();
   const { url } = useSelector((state) => state.home)
-  console.log(url)
+  // console.log(url)
 
   useEffect(() => {
     fetchApiConfig()
@@ -24,7 +26,7 @@ function App() {
   const fetchApiConfig = () => {
     fetchDataFromApi("/configuration").then((res) => {
       // console.log(res.data); 
-      console.log(res)
+      // console.log(res)
       const url = {
         backdrop: res.images.secure_base_url + "original",
         poster: res.images.secure_base_url + "original",
@@ -65,6 +67,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/:mediaType/:id' element={<Details />} />
+          <Route path='/search/:query' element={<SearchResult />} />
+          <Route path='/search/:query' element={<SearchResult />} />
+          <Route path="/explore/:mediaType" element={<Explore />} />
           <Route path='*' element={<PageNotFound />} />
           {/* <Route path='/' element={<Home />} /> */}
         </Routes>

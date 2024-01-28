@@ -7,6 +7,7 @@ import Trending from './home/trending/Trending'
 const Home = () => {
     return (
         <div className='text-blue-500'>
+            
             <Slider />
             <Popular />
             <TopRated />

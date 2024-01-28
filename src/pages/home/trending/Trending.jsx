@@ -4,9 +4,9 @@ import useFetch from "../../../hooks/useFetch"
 import SwitchTabs from "../../../components/SwitchTabs"
 
 const Trending = () => {
-    const [endPoint, setEndPoint] = useState("movie")
+    const [endPoint, setEndPoint] = useState("day")
     const { data, loading } = useFetch(`/trending/movie/${endPoint}`)
-    console.log(data)
+    // console.log(data)
 
     const onTabChange = (tab) => {
         setEndPoint(tab === "Day" ? "day" : "week");

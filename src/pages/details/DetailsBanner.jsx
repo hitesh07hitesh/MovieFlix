@@ -7,10 +7,11 @@ import dayjs from 'dayjs'
 import Genres from '../../components/Genres'
 import CircleRating from '../../components/CircleRating'
 import { PlayCircleFilled } from '@ant-design/icons'
+import VideoPopup from '../../components/VideoPopup'
 
 const DetailsBanner = ({ video, crew }) => {
     const [show, setShow] = useState(false)
-    const [videoId, SetVedioId] = useState(null)
+    const [videoId, SetVideoId] = useState(null)
 
     const { mediaType, id } = useParams()
     const { data, loading } = useFetch(`/${mediaType}/${id}`)
@@ -56,10 +57,13 @@ const DetailsBanner = ({ video, crew }) => {
                                         <Genres data={_genres} />
                                     </div>
                                     <div className='flex mt-2'>
-                                        <div className=' w-[4rem] bg-white rounded-full m-2'>
+                                        <div className=' w-[4rem] bg-white rounded-full m-2 '>
                                             <CircleRating rating={data.vote_average.toFixed(1)} />
                                         </div>
-                                        <div className='flex items-center cursor-pointer ' onClick={() => { setShow(true); SetVedioId(video.key) }}>
+                                        <div className='flex items-center cursor-pointer ' onClick={() => {
+                                                    setShow(true);
+                                                    SetVideoId(video.key);
+                                                }} >
                                             <PlayCircleFilled className='text-[4rem] m-2 text-white  cursor-pointer opacity-50' />
                                             <h2 className='text-[2rem]'>Watch Trailer</h2>
                                         </div>
@@ -139,6 +143,12 @@ const DetailsBanner = ({ video, crew }) => {
                                         )}
                                     </div>
                                 </div>
+                                <VideoPopup
+                                show={show}
+                                setShow={setShow}
+                                videoId={videoId}
+                                setVideoId={SetVideoId}
+                            />
                             </div>
                         </React.Fragment>
                     )}
